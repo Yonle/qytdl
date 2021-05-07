@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>QYoutubeDL</title>
+    <meta name="description" content="Quick Youtube downloader that let's you download youtube video in lightning speed!">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+  <body>
+  	<center>
+    <header>
+    	<br>
+      <h1>
+        ☪QYTDL
+      </h1>
+    </header>
+<br>
+    
+      <p>Quick Youtube downloader that let's you download youtube video in lightning speed!</p>
+      <br>
+    <main>
+      <p>Insert your Youtube URL's here</p>
+      
+      <form action="/" onsubmit="return(validate());">
+        <input name="url" type="url" id="input_url" placeholder="https://youtu.be/abcdefg" aria-labelledby="submit-dream" required>
+        <input name="filter" type="text" id="input_url" placeholder="Filter (Optional)">
+         <input name="contenttype" type="text" id="input_url" placeholder="Content-Type (Ex: video/m3u8)">
+        <p>Available Filter:</p><pre>video, audio, </pre><pre>videoonly, audioonly, videoandaudio</pre>
+        <button type="submit" id="submit-dream">Download!</button>
+      </form>
+      
+
+    </main>
+
+    <footer>
+      Made by <b>Yonle</b>. 
+    </footer>
+    <p>Get qytdl latest news on our <a href="/discord">Discord Server.</a></p>
+    <br>
+<p style="font-size: 13px">We do not host any copyright content/material/files on our servers. <br>This server is The Downloader only.</p>
+   <br><br>
+   </center>
+    
+<style>
+     	/* styles */
+/* called by your view template */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Benton Sans", "Helvetica Neue", helvetica, arial, sans-serif;
+  margin: 2em;
+  background-color: black;
+  background-image: url("bg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+}
+
+h1 {
+  font-style: italic;
+  color: black;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+p {
+  max-width: 600px;
+}
+
+form {
+  margin-bottom: 25px;
+  padding: 15px;
+  display: inline-block;
+  width: 100%;
+  max-width: 340px;
+  color: black;
+}
+
+input {
+  display: block;
+  margin-bottom: 10px;
+  padding: 5px;
+  width: 100%;
+  border: 1px solid lightgrey;
+  border-radius: 3px;
+  font-size: 16px;
+}
+
+button {
+  font-size: 16px;
+  border-radius: 3px;
+  background-color: white;
+  border: 1px solid black;
+  box-shadow: 2px 2px black;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: yellow;
+}
+
+button:active {
+  box-shadow: none;
+}
+
+li {
+  margin-bottom: 5px;
+}
+
+footer {
+  margin-top: 50px;
+  padding-top: 25px;
+  border-top: 1px solid lightgrey;
+}
+main {
+	border: solid;
+	border-radius: 9px;
+	color: black;
+	background-color: white;
+}
+
+     </style>
+   </body>
+</html>
