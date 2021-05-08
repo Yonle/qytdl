@@ -10,6 +10,7 @@ app.get("/bg", (req, res) => res.sendFile(__dirname + "/bg.jpg"))
 
 app.all("/*.*", async function(req, response) {
 		if (!req.url.split("?")[0].split(".")[0].slice(1).length) return response.redirect("/");
+		if (req.url.includes("favicon")) return response.end();
         var url = req.query["url"];
         var filter = req.query["filter"]
         var contenttype = req.query["contenttype"]
