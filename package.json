@@ -1,18 +1,27 @@
 {
   "name": "qytdl",
   "version": "1.0.0",
-  "description": "",
+  "description": "A Quick Youtube downloader that let's you download youtube video in lightning speed!",
   "main": "index.js",
   "scripts": {
     "start": "node index",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": ["YT Downloadable"],
+  "author": "Yonle",
+  "license": "DBAD",
   "dependencies": {
     "express": "^4.17.1",
     "express-rate-limit": "^5.2.6",
     "ytdl-core": "^4.7.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Yonle/qytdl.git"
+  },
+  "private": false,
+  "bugs": {
+    "url": "https://github.com/Yonle/qytdl/issues"
+  },
+  "homepage": "https://github.com/Yonle/qytdl#readme"
 }
