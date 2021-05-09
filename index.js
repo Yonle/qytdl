@@ -1,12 +1,21 @@
 const express = require("express");
+const RateLimit = require("express-rate-limit");
 const app = express();
+
+const ratelimit = RateLimit({
+	windowMs: 24 * 60 * 60 * 1000,
+	max: 8,
+	message: "Too many request from this request. Please try again later."
+});
+
+app.set('trust proxy', 1);
+app.use("/*.*", ratelimit);
 setInterval(() => {
 	require("child_process").exec("npm i ytdl-core@latest", () => {
 		delete require.cache[require.resolve("ytdl-core")];
 	})
 }, 3600000)
 
-app.get("/bg", (req, res) => res.sendFile(__dirname + "/bg.jpg"))
 
 app.all("/*.*", async function(req, response) {
 		if (!req.url.split("?")[0].split(".")[0].slice(1).length) return response.redirect("/");
