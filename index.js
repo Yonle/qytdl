@@ -25,15 +25,13 @@ app.all("/*.*", async function(req, response) {
   )
     return response.redirect("/");
   if (req.url.includes("favicon")) return response.end();
-  var url = req.query["url"];
-  var filter = req.query["filter"];
-  var contenttype = req.query["contenttype"];
+  let url = req.query["url"];
+  let filter = req.query["filter"];
+  let contenttype = req.query["contenttype"];
 
-  // url.includes("youtube.com")||url.includes("youtu.be")) {
   try {
-    response.setHeader("content-type", "video/mp4");
     if (contenttype) response.setHeader("content-type", contenttype);
-    var stream = await require("ytdl-core")(
+    let stream = await require("ytdl-core")(
       req.url
         .split("?")[0]
         .split(".")[0]
@@ -41,12 +39,9 @@ app.all("/*.*", async function(req, response) {
       { quality: "highest", filter: filter || "audioandvideo" }
     ).on("error", error => {
       console.error(error);
-
       response.json({ url: url, error: error });
-
       return;
-    });
-    stream.on("info", info => {
+    }).on("info", info => {
       if (!contenttype)
         response.setHeader("content-type", info.formats[0].mimeType);
       stream.pipe(response);
@@ -56,9 +51,7 @@ app.all("/*.*", async function(req, response) {
     response.json({ url: url, error: "ytdl Error:" + error });
     return false;
   }
-
   return;
-  //    } else response.json({"url":url, "error": "Invalid Youtube URL."})
 });
 app.get("/discord", (req, res) => res.redirect("https://discord.gg/9S3ZCDR"));
 app.all("/", (req, res) => {
@@ -79,6 +72,5 @@ app.all("/", (req, res) => {
   }
 });
 const listener = app.listen(process.env.PORT || 3000, () => {
-  //	console.clear()
-  // console.log("Welcome back!");
+  console.log("QYTDL is now on port", listener.address().port);
 });
