@@ -3,20 +3,24 @@ const RateLimit = require("express-rate-limit");
 const app = express();
 
 const ratelimit = RateLimit({
-  windowMs: 10 * 60 * 1000,
-  max: 8,
+  windowMs: 10 * 60 * 1000, // Ratelimit 10 minute 
+  max: 8, // Maximum request per 10 Minute
   message: "Too many request from this request. Please try again later."
 });
 
+// Prepare Ratelumit for Download endpoint
 app.set("trust proxy", 1);
 app.use("/*.*", ratelimit);
+
+// Automatic update ytdl-core every hour.
 setInterval(() => {
   require("child_process").exec("npm i ytdl-core@latest", () => {
     delete require.cache[require.resolve("ytdl-core")];
   });
 }, 3600000);
 
-app.all("/*.*", async function(req, response) {
+// Route for Download endpoint
+app.get("/*.*", async function(req, response) {
   if (
     !req.url
       .split("?")[0]
@@ -54,7 +58,7 @@ app.all("/*.*", async function(req, response) {
   return;
 });
 app.get("/discord", (req, res) => res.redirect("https://discord.gg/9S3ZCDR"));
-app.all("/", (req, res) => {
+app.get("/", (req, res) => {
   if (req.query && req.query.url) {
     try {
       require("ytdl-core").getVideoID(req.query.url);
@@ -71,6 +75,8 @@ app.all("/", (req, res) => {
     res.sendFile(__dirname + "/index.html");
   }
 });
+
+// Listen....
 const listener = app.listen(process.env.PORT || 3000, () => {
   console.log("QYTDL is now on port", listener.address().port);
 });
