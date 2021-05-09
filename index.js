@@ -3,7 +3,7 @@ const RateLimit = require("express-rate-limit");
 const app = express();
 
 const ratelimit = RateLimit({
-	windowMs: 24 * 60 * 60 * 1000,
+	windowMs: 10 * 60 * 1000,
 	max: 8,
 	message: "Too many request from this request. Please try again later."
 });
