@@ -7,7 +7,9 @@
     "start": "node index",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": ["YT Downloadable"],
+  "keywords": [
+    "YT Downloadable"
+  ],
   "author": "Yonle",
   "license": "DBAD",
   "dependencies": {
