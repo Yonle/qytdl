@@ -3,8 +3,8 @@ const RateLimit = require("express-rate-limit");
 const app = express();
 
 const ratelimit = RateLimit({
-  windowMs: 10 * 60 * 1000, // Ratelimit 10 minute 
-  max: 8, // Maximum request per 10 Minute
+  windowMs: 3 * 60 * 60 * 1000, // Ratelimit 3 hou
+  max: 30, // Maximum request per 10 Minute
   message: "Too many request from this request. Please try again later."
 });
 
