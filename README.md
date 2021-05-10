@@ -17,7 +17,7 @@ PORT=8080 node index.js
 ```
 
 ## Known Mirror
-This is the list of known mirror. If you want to submit your mirror, Feel free to create a new Issue.
+This is the list of known mirror. If you want to submit your mirror, Feel free to submit your mirror [here](https://github.com/Yonle/qytdl/issues/2).
 
 - https://qytdl.herokuapp.com (US)
 - https://qytdl.herokuapp.com (EU)
