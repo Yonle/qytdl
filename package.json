@@ -11,7 +11,7 @@
     "YT Downloadable"
   ],
   "author": "Yonle",
-  "license": "DBAD",
+  "license": "MIT",
   "dependencies": {
     "express": "^4.x",
     "ytdl-core": "^4.x"
