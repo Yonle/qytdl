@@ -1,16 +1,5 @@
 const express = require("express");
-const RateLimit = require("express-rate-limit");
 const app = express();
-
-const ratelimit = RateLimit({
-  windowMs: 3 * 60 * 60 * 1000, // Ratelimit 3 hou
-  max: 30, // Maximum request per 3 hour
-  message: "Too many request from this request. Please try again later."
-});
-
-// Prepare Ratelumit for Download endpoint
-app.set("trust proxy", 1);
-app.use("/*.*", ratelimit);
 
 // Automatic update ytdl-core every hour.
 setInterval(() => {
